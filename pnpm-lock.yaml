@@ -2,19 +2,15 @@ lockfileVersion: 5.3
 
 specifiers:
   '@actions/core': ^1.6.0
-  '@types/node': ^16.10.5
   '@vercel/ncc': ^0.31.1
   axios: ^0.25.0
-  typescript: ^4.4.4
 
 dependencies:
   '@actions/core': 1.6.0
   axios: 0.25.0
 
 devDependencies:
-  '@types/node': 16.11.21
   '@vercel/ncc': 0.31.1
-  typescript: 4.5.5
 
 packages:
 
@@ -29,10 +25,6 @@ packages:
     dependencies:
       tunnel: 0.0.6
     dev: false
-
-  /@types/node/16.11.21:
-    resolution: {integrity: sha512-Pf8M1XD9i1ksZEcCP8vuSNwooJ/bZapNmIzpmsMaL+jMI+8mEYU3PKvs+xDNuQcJWF/x24WzY4qxLtB0zNow9A==}
-    dev: true
 
   /@vercel/ncc/0.31.1:
     resolution: {integrity: sha512-g0FAxwdViI6UzsiVz5HssIHqjcPa1EHL6h+2dcJD893SoCJaGdqqgUF09xnMW6goWnnhbLvgiKlgJWrJa+7qYA==}
@@ -61,9 +53,3 @@ packages:
     resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==}
     engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
     dev: false
-
-  /typescript/4.5.5:
-    resolution: {integrity: sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: true
