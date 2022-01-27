@@ -13,7 +13,7 @@ const main = async () => {
   await axios.post(url, JSON.parse(payload), {
     headers: {
       'x-hub-signature-256': sig,
-      'Content-Type': "application/json"
+      'content-type': "application/json"
     }
   }).catch((err) => {
     console.error(err)
