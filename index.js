@@ -14,7 +14,7 @@ const main = async () => {
     headers: {
       'x-hub-signature-256': sig
     }
-  })
+  }).catch(() => process.exit(1))
 
 }
 
