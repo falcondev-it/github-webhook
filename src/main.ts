@@ -1,19 +1,21 @@
-import * as core from '@actions/core'
-import {wait} from './wait'
+import core from '@actions/core'
+import axios from 'axios'
+import { createHmac } from 'crypto'
 
-async function run(): Promise<void> {
-  try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+const main = async () => {
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+  const url = core.getInput('url')
+  const secret = core.getInput('secret')
+  const payload = core.getInput('payload')
 
-    core.setOutput('time', new Date().toTimeString())
-  } catch (error) {
-    if (error instanceof Error) core.setFailed(error.message)
-  }
+  const sig = 'sha256=' + createHmac('sha256', secret).update(payload).digest('hex')
+
+  await axios.post(url, payload, {
+    headers: {
+      'x-hub-signature-256': sig
+    }
+  })
+
 }
 
-run()
+main().catch(console.error)
