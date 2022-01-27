@@ -4790,15 +4790,18 @@ const main = async () => {
 
   const sig = 'sha256=' + (0,external_crypto_namespaceObject.createHmac)('sha256', secret).update(payload).digest('hex')
 
-  await axios.post(url, payload, {
+  await axios.request({
+    method: 'POST',
+    data: JSON.parse(payload),
     headers: {
-      'x-hub-signature-256': sig
+      'x-hub-signature-256': sig,
+      'Content-Type': "application/json"
     }
   })
 
 }
 
-main().catch(console.error)
+main().catch((err) => core.setFailed(err.message))
 })();
 
 
