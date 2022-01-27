@@ -10,14 +10,13 @@ const main = async () => {
 
   const sig = 'sha256=' + createHmac('sha256', secret).update(payload).digest('hex')
 
-  await axios.post(url, JSON.parse(payload), {
+  await axios.request({
+    method: 'POST',
+    data: JSON.parse(payload),
     headers: {
       'x-hub-signature-256': sig,
-      'content-type': "application/json"
+      'Content-Type': "application/json"
     }
-  }).catch((err) => {
-    console.error(err)
-    process.exit(1)
   })
 
 }
