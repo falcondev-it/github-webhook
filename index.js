@@ -17,6 +17,8 @@ const main = async () => {
       'x-hub-signature-256': sig,
       'Content-Type': "application/json"
     }
+  }).catch(err => {
+    core.setFailed(err.message)
   })
 
 }
